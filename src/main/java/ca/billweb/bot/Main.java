@@ -1,6 +1,7 @@
 package ca.billweb.bot;
 
 import ca.billweb.commands.CommandList;
+import ca.billweb.db.DBConnector;
 import ca.billweb.listeners.OtherEventListener;
 import ca.billweb.listeners.SlashCommandListener;
 import net.dv8tion.jda.api.JDA;
@@ -30,6 +31,8 @@ public class Main {
         JDA jda = builder.build();
         jda.updateCommands().addCommands(CommandList.slashCommands).queue();
 
-        System.out.println("Loaded!");
+        System.out.println("Connected to Discord");
+
+        DBConnector.initConnection();
     }
 }
